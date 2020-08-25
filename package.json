@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/ivandrormpro/siteaccuratemap_node#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/uuid": "^8.3.0",
+    "date-fns": "^2.15.0",
+    "express": "^4.17.1",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.7",
