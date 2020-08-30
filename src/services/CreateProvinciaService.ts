@@ -1,21 +1,20 @@
-import Provincia from '../models/Provincia';
-import ProvinciasRepository from '../repositories/ProvinciasRepository';
+import { getRepository } from 'typeorm';
+import Provincia from '../models/provincia';
 
 interface Request {
     name: string;
 }
 
 class CreateProvinciaService {
-    private provinciasRepository: ProvinciasRepository;
+    public async execute({ name }: Request): Promise<Provincia> {
+        const provinciasRepository = getRepository(Provincia);
 
-    constructor(provinciasRepository: ProvinciasRepository) {
-        this.provinciasRepository = provinciasRepository;
-    }
-
-    public execute({ name }: Request): Provincia {
-        const provincia = this.provinciasRepository.create({
+        const provincia = provinciasRepository.create({
             name,
         });
+
+        await provinciasRepository.save(provincia);
+
         return provincia;
     }
 }

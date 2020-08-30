@@ -1,25 +1,7 @@
-import Provincia from '../models/Provincia';
+import { EntityRepository, Repository } from 'typeorm';
+import Provincia from '../models/provincia';
 
-interface CreateProvinciaDTO {
-    name: string;
-}
-
-class ProvinciasRepository {
-    private provincias: Provincia[];
-
-    constructor() {
-        this.provincias = [];
-    }
-
-    public create({ name }: CreateProvinciaDTO): Provincia {
-        const provincia = new Provincia({ name });
-        this.provincias.push(provincia);
-        return provincia;
-    }
-
-    public all(): Provincia[] {
-        return this.provincias;
-    }
-}
+@EntityRepository(Provincia)
+class ProvinciasRepository extends Repository<Provincia> {}
 
 export default ProvinciasRepository;
