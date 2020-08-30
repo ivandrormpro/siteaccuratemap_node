@@ -5,13 +5,13 @@ import {
     JoinColumn,
     OneToOne,
     OneToMany,
+    ManyToOne,
 } from 'typeorm';
 import SharedProp from './sharedProp.helpers';
 import Utente from './utente';
 import ExameMedico from './exameMedico';
 import Medicacao from './medicacao';
-import Distrito from './distrito';
-import Medicamento from './medicamento';
+import EstadoPaciente from './estadoPaciente';
 
 @Entity('pacientes')
 class Paciente extends SharedProp {
@@ -23,6 +23,13 @@ class Paciente extends SharedProp {
 
     @Column({ name: 'contacto_acompanhante', nullable: false })
     contacto_acompanhante: string;
+
+    @Column({ name: 'estado_id', nullable: false })
+    estado_id: string;
+
+    @ManyToOne(() => EstadoPaciente)
+    @JoinColumn({ name: 'estado_id' })
+    estadoPaciente: EstadoPaciente;
 
     @OneToOne(() => Utente, utente => utente.paciente)
     @JoinColumn()

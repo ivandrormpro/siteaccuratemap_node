@@ -6,16 +6,12 @@ import {
     JoinColumn,
     OneToOne,
 } from 'typeorm';
-import SharedProp from './sharedProp.helpers';
-import Provincia from './provincia';
-import Municipio from './municipio';
-import Distrito from './distrito';
 import Paciente from './paciente';
-import Enfermeiro from './enfermeiro';
-import Medico from './medico';
+import Pais from './pais';
+import SharedPropLocation from './sharedPropLocation.helpers';
 
 @Entity('utentes')
-class Utente extends SharedProp {
+class Utente extends SharedPropLocation {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -25,29 +21,12 @@ class Utente extends SharedProp {
     @Column({ name: 'apelido', nullable: false })
     apelido: string;
 
-    @Column({ name: 'nacionalidade', nullable: false })
-    nacionalidade: string;
+    @Column({ name: 'nacionalidade_id', nullable: false })
+    nacionalidade_id: string;
 
-    @Column({ name: 'municipio_id', nullable: false })
-    municipio_id: string;
-
-    @ManyToOne(() => Municipio)
-    @JoinColumn({ name: 'municipio_id' })
-    municipio: Municipio;
-
-    @Column({ name: 'provincia_id', nullable: false })
-    provincia_id: string;
-
-    @ManyToOne(() => Provincia)
-    @JoinColumn({ name: 'provincia_id' })
-    provincia: Provincia;
-
-    @Column({ name: 'distrito_id', nullable: false })
-    distrito_id: string;
-
-    @ManyToOne(() => Distrito)
-    @JoinColumn({ name: 'distrito_id' })
-    distrito: Distrito;
+    @ManyToOne(() => Pais)
+    @JoinColumn({ name: 'nacionalidade_id' })
+    nacionalidade: Pais;
 
     @Column({ name: 'tipo_identificacao', nullable: false })
     tipo_identificacao: string;
@@ -78,12 +57,6 @@ class Utente extends SharedProp {
 
     @OneToOne(() => Paciente, paciente => paciente.utente)
     paciente: Paciente;
-
-    @OneToOne(() => Enfermeiro, enfermeiro => enfermeiro.utente)
-    enfermeiro: Enfermeiro;
-
-    @OneToOne(() => Medico, medico => medico.utente)
-    medico: Medico;
 }
 
 export default Utente;

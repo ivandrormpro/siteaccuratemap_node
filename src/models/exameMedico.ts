@@ -8,10 +8,10 @@ import {
 import TipoExameMedico from './tipoExameMedico';
 import Enfermeiro from './enfermeiro';
 import ResultadoExame from './resultadoExame';
-import SharedPropProfissional from './sharedPropProfissional.helpers';
+import SharedPropExameMedicacao from './sharedPropExameMedicacao.helpers';
 
 @Entity('examesMedicos')
-class ExameMedico extends SharedPropProfissional {
+class ExameMedico extends SharedPropExameMedicacao {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 

@@ -5,29 +5,13 @@ import {
     JoinColumn,
     ManyToOne,
 } from 'typeorm';
-import SharedProp from './sharedProp.helpers';
-import Paciente from './paciente';
-import Medico from './medico';
 import Medicamento from './medicamento';
+import SharedPropExameMedicacao from './sharedPropExameMedicacao.helpers';
 
 @Entity('medicacoes')
-class Medicacao extends SharedProp {
+class Medicacao extends SharedPropExameMedicacao {
     @PrimaryGeneratedColumn('uuid')
     id: string;
-
-    @Column({ name: 'paciente_id', nullable: false })
-    paciente_id: string;
-
-    @ManyToOne(() => Paciente, (paciente: Paciente) => paciente.medicacoes)
-    @JoinColumn({ name: 'paciente_id' })
-    paciente: Paciente;
-
-    @Column({ name: 'medico_id', nullable: false })
-    medico_id: string;
-
-    @ManyToOne(() => Medico)
-    @JoinColumn({ name: 'medico_id' })
-    medico: Medico;
 
     @Column({ name: 'medicamento_id', nullable: false })
     medicamento_id: string;

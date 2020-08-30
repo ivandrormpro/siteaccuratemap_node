@@ -1,11 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateUnidadeHospitalar1598644229950
-    implements MigrationInterface {
+export default class CreateDoenca1598801778387 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'unidadesHospitalares',
+                name: 'doencas',
                 columns: [
                     {
                         name: 'id',
@@ -17,13 +16,7 @@ export default class CreateUnidadeHospitalar1598644229950
                     {
                         name: 'name',
                         type: 'varchar',
-                        isNullable: false,
-                        isUnique: true,
-                    },
-                    {
-                        name: 'capacidade',
-                        type: 'smallint',
-                        isNullable: false,
+                        isNullable: true,
                     },
                     {
                         name: 'created_at',
@@ -41,6 +34,6 @@ export default class CreateUnidadeHospitalar1598644229950
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('unidadesHospitalares');
+        await queryRunner.dropTable('doencas');
     }
 }

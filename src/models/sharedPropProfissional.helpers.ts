@@ -1,20 +1,17 @@
-import { ManyToOne, JoinColumn, Column } from 'typeorm';
+import { ManyToOne, JoinColumn, Column, OneToOne } from 'typeorm';
 import SharedProp from './sharedProp.helpers';
-import Paciente from './paciente';
-import Medico from './medico';
+import UnidadeHospitalar from './unidadeHospitalar';
+import Utente from './utente';
 
 export default class SharedPropProfissional extends SharedProp {
-    @Column({ name: 'paciente_id', nullable: false })
-    paciente_id: string;
+    @Column({ name: 'unidade_hospitalar_id', nullable: false })
+    unidade_hospitalar_id: string;
 
-    @ManyToOne(() => Paciente, (paciente: Paciente) => paciente.exames)
-    @JoinColumn({ name: 'paciente_id' })
-    paciente: Paciente;
+    @ManyToOne(() => UnidadeHospitalar)
+    @JoinColumn({ name: 'unidade_hospitalar_id' })
+    unidadeHospitalar: UnidadeHospitalar;
 
-    @Column({ name: 'medico_id', nullable: false })
-    medico_id: string;
-
-    @ManyToOne(() => Medico)
-    @JoinColumn({ name: 'medico_id' })
-    medico: Medico;
+    @OneToOne(() => Utente)
+    @JoinColumn()
+    utente: Utente;
 }

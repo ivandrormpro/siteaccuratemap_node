@@ -21,6 +21,11 @@ export default class CreateCentroQuarentena1598644986613
                         isUnique: true,
                     },
                     {
+                        name: 'capacidade',
+                        type: 'smallint',
+                        isNullable: false,
+                    },
+                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()',

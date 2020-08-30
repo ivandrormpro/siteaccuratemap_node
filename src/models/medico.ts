@@ -1,30 +1,11 @@
-import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    JoinColumn,
-    ManyToOne,
-    OneToOne,
-} from 'typeorm';
-import SharedProp from './sharedProp.helpers';
-import UnidadeHospitalar from './unidadeHospitalar';
+import { Entity, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 'typeorm';
 import EspecialidadeMedica from './especialidadeMedica';
-import Utente from './utente';
+import SharedPropProfissional from './sharedPropProfissional.helpers';
 
 @Entity('medicos')
-class Medico extends SharedProp {
+class Medico extends SharedPropProfissional {
     @PrimaryGeneratedColumn('uuid')
     id: string;
-
-    @Column({ name: 'unidade_hospitalar_id', nullable: false })
-    unidade_hospitalar_id: string;
-
-    @ManyToOne(
-        () => UnidadeHospitalar,
-        (unidadeHospitalar: UnidadeHospitalar) => unidadeHospitalar.enfermeiros,
-    )
-    @JoinColumn({ name: 'unidade_hospitalar_id' })
-    unidadeHospitalar: UnidadeHospitalar;
 
     @ManyToOne(
         () => EspecialidadeMedica,
@@ -33,10 +14,6 @@ class Medico extends SharedProp {
     )
     @JoinColumn({ name: 'especialidade_medica_id' })
     especialidadeMedica: EspecialidadeMedica;
-
-    @OneToOne(() => Utente, utente => utente.paciente)
-    @JoinColumn()
-    utente: Utente;
 }
 
 export default Medico;
