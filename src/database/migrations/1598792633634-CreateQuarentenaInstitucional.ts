@@ -77,7 +77,7 @@ export default class CreateQuarentenaInstitucional1598792633634
                 columnNames: ['utente_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'utentes',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -85,7 +85,7 @@ export default class CreateQuarentenaInstitucional1598792633634
                 columnNames: ['medico_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'medicos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -93,7 +93,7 @@ export default class CreateQuarentenaInstitucional1598792633634
                 columnNames: ['enfermeiro_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'enfermeiros',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -101,7 +101,7 @@ export default class CreateQuarentenaInstitucional1598792633634
                 columnNames: ['centro_quarentena_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'centrosQuarentena',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         ]);

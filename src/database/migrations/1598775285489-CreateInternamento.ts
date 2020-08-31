@@ -89,7 +89,7 @@ export default class CreateInternamento1598775285489
                 columnNames: ['paciente_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'pacientes',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -97,7 +97,7 @@ export default class CreateInternamento1598775285489
                 columnNames: ['medico_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'medicos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -105,7 +105,7 @@ export default class CreateInternamento1598775285489
                 columnNames: ['enfermeiro_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'enfermeiros',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -113,7 +113,7 @@ export default class CreateInternamento1598775285489
                 columnNames: ['unidade_hospitalar_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'unidadesHospitalares',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -121,7 +121,7 @@ export default class CreateInternamento1598775285489
                 columnNames: ['area_internamento_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'areasInternamento',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         ]);

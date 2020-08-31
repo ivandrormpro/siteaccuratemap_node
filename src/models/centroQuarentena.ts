@@ -1,5 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    ManyToOne,
+    JoinColumn,
+} from 'typeorm';
 import SharedPropLocation from './sharedPropLocation.helpers';
+import Distrito from './distrito';
 
 @Entity('centrosQuarentena')
 class CentroQuarentena extends SharedPropLocation {

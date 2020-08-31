@@ -1,6 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    OneToMany,
+    ManyToOne,
+    JoinColumn,
+} from 'typeorm';
 import Enfermeiro from './enfermeiro';
 import SharedPropLocation from './sharedPropLocation.helpers';
+import Distrito from './distrito';
+import Medico from './medico';
 
 @Entity('unidadesHospitalares')
 class UnidadeHospitalar extends SharedPropLocation {
@@ -22,6 +31,12 @@ class UnidadeHospitalar extends SharedPropLocation {
         },
     )
     enfermeiros: Array<Enfermeiro>;
+
+    @OneToMany('Medico', (medico: Medico) => medico.unidadeHospitalar, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    })
+    medicos: Array<Medico>;
 }
 
 export default UnidadeHospitalar;

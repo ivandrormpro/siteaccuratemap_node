@@ -72,7 +72,7 @@ export default class CreateMedicacao1598709546551
                 columnNames: ['medico_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'medicos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -80,7 +80,7 @@ export default class CreateMedicacao1598709546551
                 columnNames: ['medicamento_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'medicamentos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -88,7 +88,7 @@ export default class CreateMedicacao1598709546551
                 columnNames: ['paciente_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'pacientes',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         ]);

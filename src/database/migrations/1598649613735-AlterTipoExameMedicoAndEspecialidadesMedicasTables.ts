@@ -31,7 +31,7 @@ export default class AlterTipoExameMedicoAndEspecialidadesMedicasTables159864961
                 columnNames: ['especialidade_medica_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'especialidadesMedicas',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         );
@@ -42,7 +42,7 @@ export default class AlterTipoExameMedicoAndEspecialidadesMedicasTables159864961
                 columnNames: ['tipo_exame_medico_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'tiposExamesMedicos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         );

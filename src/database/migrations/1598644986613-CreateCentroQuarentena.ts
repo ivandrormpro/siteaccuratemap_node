@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import {
+    MigrationInterface,
+    QueryRunner,
+    Table,
+    TableForeignKey,
+} from 'typeorm';
 
 export default class CreateCentroQuarentena1598644986613
     implements MigrationInterface {
@@ -35,12 +40,32 @@ export default class CreateCentroQuarentena1598644986613
                         type: 'timestamp',
                         default: 'now()',
                     },
+                    {
+                        name: 'distrito_id',
+                        type: 'uuid',
+                        isNullable: true,
+                    },
                 ],
+            }),
+        );
+        await queryRunner.createForeignKey(
+            'centrosQuarentena',
+            new TableForeignKey({
+                name: 'DistritoProviderCQ',
+                columnNames: ['distrito_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'distritos',
+                onDelete: 'NO ACTION',
+                onUpdate: 'CASCADE',
             }),
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropForeignKey(
+            'centrosQuarentena',
+            'DistritoProviderCQ',
+        );
         await queryRunner.dropTable('centrosQuarentena');
     }
 }

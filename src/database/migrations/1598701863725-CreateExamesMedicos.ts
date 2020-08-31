@@ -73,7 +73,7 @@ export default class CreateExamesMedicos1598701863725
                 columnNames: ['paciente_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'pacientes',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -81,7 +81,7 @@ export default class CreateExamesMedicos1598701863725
                 columnNames: ['tipo_exame_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'tiposExamesMedicos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -89,7 +89,7 @@ export default class CreateExamesMedicos1598701863725
                 columnNames: ['medico_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'medicos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -97,7 +97,7 @@ export default class CreateExamesMedicos1598701863725
                 columnNames: ['enfermeiro_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'enfermeiros',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -105,7 +105,7 @@ export default class CreateExamesMedicos1598701863725
                 columnNames: ['resultado_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'resultadosExames',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         ]);

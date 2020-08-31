@@ -43,7 +43,7 @@ export default class AlterEnfermeiro1598688701940
                 columnNames: ['unidade_hospitalar_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'unidadesHospitalares',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         );

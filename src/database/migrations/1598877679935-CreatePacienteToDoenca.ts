@@ -5,12 +5,12 @@ import {
     TableForeignKey,
 } from 'typeorm';
 
-export default class CreateUnidadeHospitalar1598644229950
+export default class CreatePacienteToDoenca1598877679935
     implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'unidadesHospitalares',
+                name: 'pacientesToDoencas',
                 columns: [
                     {
                         name: 'id',
@@ -20,18 +20,12 @@ export default class CreateUnidadeHospitalar1598644229950
                         default: 'uuid_generate_v4()',
                     },
                     {
-                        name: 'name',
-                        type: 'varchar',
-                        isNullable: false,
-                        isUnique: true,
+                        name: 'paciente_id',
+                        type: 'uuid',
+                        isNullable: true,
                     },
                     {
-                        name: 'capacidade',
-                        type: 'smallint',
-                        isNullable: false,
-                    },
-                    {
-                        name: 'distrito_id',
+                        name: 'doenca_id',
                         type: 'uuid',
                         isNullable: true,
                     },
@@ -48,14 +42,24 @@ export default class CreateUnidadeHospitalar1598644229950
                 ],
             }),
         );
-
         await queryRunner.createForeignKey(
-            'unidadesHospitalares',
+            'pacientesToDoencas',
             new TableForeignKey({
-                name: 'DistritoProviderUH',
-                columnNames: ['distrito_id'],
+                name: 'pacienteDoencaFK1',
+                columnNames: ['doenca_id'],
                 referencedColumnNames: ['id'],
-                referencedTableName: 'distritos',
+                referencedTableName: 'doencas',
+                onDelete: 'NO ACTION',
+                onUpdate: 'CASCADE',
+            }),
+        );
+        await queryRunner.createForeignKey(
+            'pacientesToDoencas',
+            new TableForeignKey({
+                name: 'pacienteDoencaFK2',
+                columnNames: ['paciente_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'pacientes',
                 onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
@@ -64,9 +68,13 @@ export default class CreateUnidadeHospitalar1598644229950
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropForeignKey(
-            'unidadesHospitalares',
-            'DistritoProviderUH',
+            'pacientesToDoencas',
+            'pacienteDoencaFK2',
         );
-        await queryRunner.dropTable('unidadesHospitalares');
+        await queryRunner.dropForeignKey(
+            'pacientesToDoencas',
+            'pacienteDoencaFK1',
+        );
+        await queryRunner.dropTable('pacientesToDoencas');
     }
 }

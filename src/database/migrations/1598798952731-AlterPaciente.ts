@@ -21,7 +21,7 @@ export default class AlterPaciente1598798952731 implements MigrationInterface {
                 columnNames: ['estado_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'estadosPacientes',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         ]);

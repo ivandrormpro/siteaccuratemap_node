@@ -12,6 +12,7 @@ import Utente from './utente';
 import ExameMedico from './exameMedico';
 import Medicacao from './medicacao';
 import EstadoPaciente from './estadoPaciente';
+import PacienteToDoenca from './pacienteToDoenca';
 
 @Entity('pacientes')
 class Paciente extends SharedProp {
@@ -50,6 +51,16 @@ class Paciente extends SharedProp {
         onUpdate: 'CASCADE',
     })
     medicacoes: Array<Medicacao>;
+
+    @OneToMany(
+        'PacienteToDoenca',
+        (pacienteToDoenca: PacienteToDoenca) => pacienteToDoenca.doenca,
+        {
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
+        },
+    )
+    pacienteToDoenca: Array<PacienteToDoenca>;
 }
 
 export default Paciente;

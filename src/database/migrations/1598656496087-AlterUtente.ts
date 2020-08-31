@@ -36,7 +36,7 @@ export default class AlterUtente1598656496087 implements MigrationInterface {
                 columnNames: ['estado_civil_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'estadosCivis',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -44,7 +44,7 @@ export default class AlterUtente1598656496087 implements MigrationInterface {
                 columnNames: ['sexo_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'sexos',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -52,7 +52,7 @@ export default class AlterUtente1598656496087 implements MigrationInterface {
                 columnNames: ['tipo_identificacao_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'tiposIdentificacao',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
             new TableForeignKey({
@@ -60,7 +60,7 @@ export default class AlterUtente1598656496087 implements MigrationInterface {
                 columnNames: ['nacionalidade_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'paises',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         ]);

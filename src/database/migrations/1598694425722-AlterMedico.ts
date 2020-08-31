@@ -42,7 +42,7 @@ export default class AlterMedico1598694425722 implements MigrationInterface {
                 columnNames: ['unidade_hospitalar_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'unidadesHospitalares',
-                onDelete: 'CASCADE',
+                onDelete: 'NO ACTION',
                 onUpdate: 'CASCADE',
             }),
         );

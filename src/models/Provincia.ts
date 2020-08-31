@@ -16,12 +16,6 @@ class Provincia extends SharedProp {
         onUpdate: 'CASCADE',
     })
     municipios: Array<Provincia>;
-
-    @OneToMany('Distrito', (distrito: Distrito) => distrito.municipio, {
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-    })
-    distritos: Array<Provincia>;
 }
 
 export default Provincia;
